@@ -1,0 +1,71 @@
+{
+  "name": "loom",
+  "private": true,
+  "type": "module",
+  "description": "Loom MVVM framework monorepo",
+  "license": "MIT",
+  "author": "sedoyjan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sedoyjan/loom.git"
+  },
+  "engines": {
+    "node": ">=22.14"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "dev:demo": "pnpm build:packages && turbo run dev --parallel --filter=demo-web --filter='@loom/*'",
+    "build": "turbo run build",
+    "build:packages": "turbo run build --filter='./packages/*'",
+    "build:demo": "pnpm --filter demo-web build",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch --parallel",
+    "test:coverage": "turbo run test:coverage",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "node ./scripts/clean.mjs",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm validate:packages",
+    "changeset": "changeset",
+    "changeset:status": "changeset status",
+    "version-packages": "changeset version",
+    "release": "pnpm check && changeset publish",
+    "release:dry-run": "node ./scripts/verify-release.mjs",
+    "validate:packages": "node ./scripts/validate-packages.mjs",
+    "check:placeholders": "node ./scripts/check-placeholders.mjs",
+    "demo": "pnpm dev:demo",
+    "demo:preview": "pnpm --filter demo-web preview"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.1",
+    "@changesets/cli": "2.29.2",
+    "@eslint/js": "9.26.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "@vitest/coverage-v8": "3.1.2",
+    "eslint": "9.26.0",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-react-refresh": "0.4.20",
+    "globals": "16.0.0",
+    "jsdom": "26.1.0",
+    "prettier": "3.5.3",
+    "publint": "0.3.12",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "turbo": "2.5.2",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.31.1",
+    "vitest": "3.1.2"
+  }
+}

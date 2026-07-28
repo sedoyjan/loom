@@ -1,2 +1,12 @@
-plan.md
+node_modules
+dist
+coverage
+.turbo
+*.tgz
+.DS_Store
 .history
+plan.md
+*.log
+apps/demo-web/dist
+examples/next-app/.next
+examples/expo-app/.expo

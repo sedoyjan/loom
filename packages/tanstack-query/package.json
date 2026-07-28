@@ -1,0 +1,67 @@
+{
+  "name": "@loom/tanstack-query",
+  "version": "0.0.0",
+  "description": "Adapter between Loom and TanStack Query core",
+  "license": "MIT",
+  "author": "sedoyjan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sedoyjan/loom.git",
+    "directory": "packages/tanstack-query"
+  },
+  "homepage": "https://github.com/sedoyjan/loom#readme",
+  "bugs": {
+    "url": "https://github.com/sedoyjan/loom/issues"
+  },
+  "keywords": [
+    "loom",
+    "tanstack-query",
+    "adapter"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup && node ../../scripts/copy-license.mjs",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "typecheck": "tsc --noEmit",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "@loom/core": "workspace:*",
+    "@tanstack/query-core": "^5.0.0"
+  },
+  "devDependencies": {
+    "@loom/core": "workspace:*",
+    "@tanstack/query-core": "5.74.4",
+    "tsup": "8.4.0"
+  }
+}

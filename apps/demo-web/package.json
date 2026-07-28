@@ -1,0 +1,36 @@
+{
+  "name": "demo-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@loom/core": "workspace:*",
+    "@loom/react": "workspace:*",
+    "@loom/redux": "workspace:*",
+    "@loom/rxjs": "workspace:*",
+    "@loom/tanstack-query": "workspace:*",
+    "@loom/zustand": "workspace:*",
+    "@tanstack/query-core": "5.74.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "redux": "5.0.1",
+    "rxjs": "7.8.2",
+    "zustand": "5.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "@vitejs/plugin-react": "4.4.1",
+    "typescript": "5.8.3",
+    "vite": "6.3.3"
+  }
+}
