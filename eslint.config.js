@@ -46,6 +46,16 @@ export default tseslint.config(
     },
   },
   {
+    files: ["examples/expo-app/**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        projectService: false,
+        project: "./examples/expo-app/tsconfig.eslint.json",
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  {
     files: ["packages/core/**/*.{ts,tsx}"],
     rules: {
       "no-restricted-imports": [

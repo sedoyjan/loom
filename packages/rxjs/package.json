@@ -1,6 +1,6 @@
 {
   "name": "@loom/rxjs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Adapter for RxJS observables as Loom reactive sources",
   "license": "MIT",
   "author": "sedoyjan",

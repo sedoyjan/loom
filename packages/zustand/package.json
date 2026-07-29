@@ -1,6 +1,6 @@
 {
   "name": "@loom/zustand",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Adapter for Zustand vanilla stores as Loom reactive sources",
   "license": "MIT",
   "author": "sedoyjan",

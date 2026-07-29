@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@loom/core": ["../../packages/core/src/index.ts"],
+      "@loom/react": ["../../packages/react/src/index.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "types/**/*.d.ts"]
+}

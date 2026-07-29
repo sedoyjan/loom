@@ -1,6 +1,6 @@
 {
   "name": "@loom/tanstack-query",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Adapter between Loom and TanStack Query core",
   "license": "MIT",
   "author": "sedoyjan",
