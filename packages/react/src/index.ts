@@ -5,6 +5,10 @@ export {
   type RuntimeProviderProps,
 } from "./RuntimeProvider.js";
 export { useExternalSource } from "./useExternalSource.js";
-export { useDecompose, type DecomposedSources, type ReadableSourceKeys } from "./useDecompose.js";
+export {
+  useDecompose,
+  type DecomposedSources,
+  type ReadableSourceKeys,
+} from "./useDecompose.js";
 export { useViewModel, type ViewModelFactory } from "./useViewModel.js";
 export { view } from "./view.js";

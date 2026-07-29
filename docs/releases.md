@@ -16,16 +16,34 @@ After merge to `main`, the Release workflow opens or updates a "Version packages
 
 Primary publishing path is **OIDC Trusted Publishing** from `.github/workflows/release.yml` (`id-token: write`).
 
+## Local release
+
+```bash
+pnpm check
+node ./scripts/ensure-publish-ready.mjs
+changeset publish
+```
+
+Or `pnpm release` (runs all of the above).
+
+Packages are built during `pnpm check`; `prepack` only verifies `dist/` exists (it does not rebuild, so publish does not break on workspace-only types).
+
 ### First publication bootstrap
 
 1. Create the npm scope/org for `@loom`.
-2. Perform the first publish manually if npm requires an existing package before Trusted Publisher setup.
-3. For each package, configure Trusted Publisher:
+2. Add changesets and run `pnpm version-packages` before publishing (avoid shipping unintended `0.0.0` if you prefer a semver start).
+3. First publish when nothing exists on npm yet:
+
+```bash
+LOOM_ALLOW_FIRST_PUBLISH=1 pnpm release
+```
+
+4. For each package, configure Trusted Publisher:
    - Owner: `sedoyjan`
    - Repository: `loom`
    - Workflow: `release.yml`
-4. Revoke long-lived write tokens after OIDC works.
-5. Verify provenance on npm.
+5. Revoke long-lived write tokens after OIDC works.
+6. Verify provenance on npm.
 
 Manual token-based publish is a documented fallback only.
 

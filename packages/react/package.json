@@ -54,7 +54,7 @@
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
     "typecheck": "tsc --noEmit",
-    "prepack": "pnpm run build"
+    "prepack": "node ../../scripts/prepack.mjs"
   },
   "peerDependencies": {
     "@loom/core": "workspace:*",

@@ -37,7 +37,7 @@
     "changeset": "changeset",
     "changeset:status": "changeset status",
     "version-packages": "changeset version",
-    "release": "pnpm check && changeset publish",
+    "release": "pnpm check && node ./scripts/ensure-publish-ready.mjs && changeset publish",
     "release:dry-run": "node ./scripts/verify-release.mjs",
     "validate:packages": "node ./scripts/validate-packages.mjs",
     "check:placeholders": "node ./scripts/check-placeholders.mjs",

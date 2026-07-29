@@ -11,9 +11,5 @@ export function useExternalSource<T>(
   );
   const getSnapshot = useCallback(() => source.getSnapshot(), [source]);
 
-  return useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    getServerSnapshot ?? getSnapshot,
-  );
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot ?? getSnapshot);
 }
