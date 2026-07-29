@@ -1,5 +1,5 @@
-import { behaviorSubjectSource, rxjsSource } from "@loom/rxjs";
-import { RuntimeProvider, useExternalSource } from "@loom/react";
+import { behaviorSubjectSource, rxjsSource } from "@loom-mvvm/rxjs";
+import { RuntimeProvider, useExternalSource } from "@loom-mvvm/react";
 import { BehaviorSubject, interval, map, take } from "rxjs";
 import { useEffect, useMemo } from "react";
 

@@ -46,8 +46,8 @@ pnpm changeset
 
 ## Package boundaries
 
-- `@loom/core` must not import React, DOM APIs, or adapter libraries.
-- Adapter packages depend on `@loom/core` and their peer library only.
+- `@loom-mvvm/core` must not import React, DOM APIs, or adapter libraries.
+- Adapter packages depend on `@loom-mvvm/core` and their peer library only.
 - `apps/*` and `examples/*` are private and never published.
 
 ## Pull requests

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { ReadableSource } from "@loom/core";
+import type { ReadableSource } from "@loom-mvvm/core";
 import { useExternalSource } from "./useExternalSource.js";
 
 export interface ObserveProps<T> {

@@ -1,5 +1,5 @@
-import { reduxSource } from "@loom/redux";
-import { RuntimeProvider, useExternalSource } from "@loom/react";
+import { reduxSource } from "@loom-mvvm/redux";
+import { RuntimeProvider, useExternalSource } from "@loom-mvvm/react";
 import { legacy_createStore as createStore } from "redux";
 import { useMemo } from "react";
 

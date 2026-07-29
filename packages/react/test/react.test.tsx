@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { StrictMode, useState } from "react";
 import { describe, expect, it, vi } from "vitest";
-import { action, computed, state } from "@loom/core";
+import { action, computed, state } from "@loom-mvvm/core";
 import {
   RuntimeProvider,
   useDecompose,

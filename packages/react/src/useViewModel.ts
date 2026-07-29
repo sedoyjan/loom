@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { Disposable } from "@loom/core";
+import type { Disposable } from "@loom-mvvm/core";
 
 export type ViewModelFactory<T extends Disposable> = () => T;
 

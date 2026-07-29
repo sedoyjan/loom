@@ -6,7 +6,7 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: !process.argv.includes("--watch"),
-  external: ["react", "@loom/core"],
+  external: ["react", "@loom-mvvm/core"],
   treeshake: true,
   outExtension({ format }) {
     return { js: format === "cjs" ? ".cjs" : ".js" };

@@ -76,22 +76,22 @@ importers:
 
   apps/demo-web:
     dependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../../packages/core
-      "@loom/react":
+      "@loom-mvvm/react":
         specifier: workspace:*
         version: link:../../packages/react
-      "@loom/redux":
+      "@loom-mvvm/redux":
         specifier: workspace:*
         version: link:../../packages/redux
-      "@loom/rxjs":
+      "@loom-mvvm/rxjs":
         specifier: workspace:*
         version: link:../../packages/rxjs
-      "@loom/tanstack-query":
+      "@loom-mvvm/tanstack-query":
         specifier: workspace:*
         version: link:../../packages/tanstack-query
-      "@loom/zustand":
+      "@loom-mvvm/zustand":
         specifier: workspace:*
         version: link:../../packages/zustand
       "@tanstack/query-core":
@@ -131,10 +131,10 @@ importers:
 
   examples/expo-app:
     dependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../../packages/core
-      "@loom/react":
+      "@loom-mvvm/react":
         specifier: workspace:*
         version: link:../../packages/react
       expo:
@@ -159,10 +159,10 @@ importers:
 
   examples/next-app:
     dependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../../packages/core
-      "@loom/react":
+      "@loom-mvvm/react":
         specifier: workspace:*
         version: link:../../packages/react
       next:
@@ -199,7 +199,7 @@ importers:
 
   packages/react:
     devDependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../core
       "@testing-library/jest-dom":
@@ -232,7 +232,7 @@ importers:
 
   packages/redux:
     devDependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../core
       redux:
@@ -244,7 +244,7 @@ importers:
 
   packages/rxjs:
     devDependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../core
       rxjs:
@@ -256,7 +256,7 @@ importers:
 
   packages/tanstack-query:
     devDependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../core
       "@tanstack/query-core":
@@ -268,7 +268,7 @@ importers:
 
   packages/zustand:
     devDependencies:
-      "@loom/core":
+      "@loom-mvvm/core":
         specifier: workspace:*
         version: link:../core
       tsup:

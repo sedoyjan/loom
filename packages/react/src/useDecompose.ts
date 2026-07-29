@@ -1,5 +1,5 @@
 import { useCallback, useRef, useSyncExternalStore } from "react";
-import type { ReadableSource } from "@loom/core";
+import type { ReadableSource } from "@loom-mvvm/core";
 
 type SourceValue<S> = S extends ReadableSource<infer T> ? T : never;
 

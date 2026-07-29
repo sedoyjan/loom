@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from "react";
-import type { Disposable } from "@loom/core";
+import type { Disposable } from "@loom-mvvm/core";
 import { useViewModel, type ViewModelFactory } from "./useViewModel.js";
 
 export function view<T extends Disposable>(

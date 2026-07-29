@@ -40,7 +40,7 @@ try {
       fail(`${label} is a non-publishable app name in packages/`);
     }
 
-    const expectedName = `@loom/${dirName}`;
+    const expectedName = `@loom-mvvm/${dirName}`;
     if (manifest.name !== expectedName) {
       fail(`${label} name must be ${expectedName}`);
     }

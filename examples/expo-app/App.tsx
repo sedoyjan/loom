@@ -1,5 +1,5 @@
-import { action, defineViewModel, state } from "@loom/core";
-import { RuntimeProvider, useExternalSource, view } from "@loom/react";
+import { action, defineViewModel, state } from "@loom-mvvm/core";
+import { RuntimeProvider, useExternalSource, view } from "@loom-mvvm/react";
 import { Button, Text, View } from "react-native";
 
 const CounterViewModel = defineViewModel(() => {

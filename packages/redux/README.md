@@ -1,4 +1,4 @@
-# @loom/redux
+# @loom-mvvm/redux
 
 Exposes Redux-compatible stores as Loom `ReadableSource` values.
 

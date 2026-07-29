@@ -1,4 +1,4 @@
-# @loom/rxjs
+# @loom-mvvm/rxjs
 
 Adapters for RxJS `Observable` and `BehaviorSubject`.
 

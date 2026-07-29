@@ -1,6 +1,6 @@
 "use client";
 
-import { RuntimeProvider } from "@loom/react";
+import { RuntimeProvider } from "@loom-mvvm/react";
 import type { ReactNode } from "react";
 
 export function Providers({ children }: { children: ReactNode }) {

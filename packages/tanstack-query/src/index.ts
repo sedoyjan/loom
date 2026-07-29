@@ -6,8 +6,8 @@ import {
   type QueryKey,
   type QueryObserverOptions,
 } from "@tanstack/query-core";
-import { externalSource, type ReadableSource } from "@loom/core";
-import type { Disposable } from "@loom/core";
+import { externalSource, type ReadableSource } from "@loom-mvvm/core";
+import type { Disposable } from "@loom-mvvm/core";
 
 export function tanstackQuerySource<
   TQueryFnData = unknown,

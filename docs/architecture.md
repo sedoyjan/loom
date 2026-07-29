@@ -4,18 +4,18 @@ Loom separates UI rendering from application logic using a framework-independent
 
 ## Layers
 
-- **View** — React (or React Native) components bound through `@loom/react`.
-- **ViewModel** — Reactive state and commands composed with `@loom/core` primitives.
+- **View** — React (or React Native) components bound through `@loom-mvvm/react`.
+- **ViewModel** — Reactive state and commands composed with `@loom-mvvm/core` primitives.
 - **Services** — Application and infrastructure code invoked by ViewModels.
 - **External adapters** — Bridges to TanStack Query, Zustand, Redux, and RxJS without re-implementing those libraries.
 
 ## Dependency direction
 
 ```text
-View → @loom/react → @loom/core ← adapter packages → external libraries
+View → @loom-mvvm/react → @loom-mvvm/core ← adapter packages → external libraries
 ```
 
-`@loom/core` never imports renderer or adapter packages.
+`@loom-mvvm/core` never imports renderer or adapter packages.
 
 ## Runtime scope
 

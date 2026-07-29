@@ -1,6 +1,6 @@
 # Adapters
 
-Adapters expose third-party stores and observers as `ReadableSource` values compatible with `@loom/core` and `@loom/react`.
+Adapters expose third-party stores and observers as `ReadableSource` values compatible with `@loom-mvvm/core` and `@loom-mvvm/react`.
 
 They **do not** replace the underlying library.
 
@@ -14,11 +14,11 @@ Each adapter:
 
 ## Packages
 
-| Package                | Peer                   | Entry points                                    |
-| ---------------------- | ---------------------- | ----------------------------------------------- |
-| `@loom/tanstack-query` | `@tanstack/query-core` | `tanstackQuerySource`, `tanstackMutationSource` |
-| `@loom/zustand`        | `zustand`              | `zustandSource`                                 |
-| `@loom/redux`          | `redux`                | `reduxSource`                                   |
-| `@loom/rxjs`           | `rxjs`                 | `rxjsSource`, `behaviorSubjectSource`           |
+| Package                     | Peer                   | Entry points                                    |
+| --------------------------- | ---------------------- | ----------------------------------------------- |
+| `@loom-mvvm/tanstack-query` | `@tanstack/query-core` | `tanstackQuerySource`, `tanstackMutationSource` |
+| `@loom-mvvm/zustand`        | `zustand`              | `zustandSource`                                 |
+| `@loom-mvvm/redux`          | `redux`                | `reduxSource`                                   |
+| `@loom-mvvm/rxjs`           | `rxjs`                 | `rxjsSource`, `behaviorSubjectSource`           |
 
 Selectors and custom equality functions prevent unnecessary notifications.

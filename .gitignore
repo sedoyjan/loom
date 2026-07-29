@@ -5,8 +5,11 @@ coverage
 *.tgz
 .DS_Store
 .history
+.env
 plan.md
 *.log
 apps/demo-web/dist
 examples/next-app/.next
 examples/expo-app/.expo
+
+.env

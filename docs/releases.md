@@ -14,37 +14,48 @@ When you are ready to ship, run `pnpm version-packages` on a branch, merge, then
 
 The GitHub Release workflow (`.github/workflows/release.yml`) is **disabled** until npm Trusted Publishing is configured.
 
-## Local publish
+## Publish with an npm token
+
+Publishing uses a **granular access token** via `NODE_AUTH_TOKEN` (not `npm login`).
+
+1. [Create a token](https://www.npmjs.com/settings/~tokens) → **Granular Access Token**
+   - Permissions: **Read and write** → **Publish** packages
+   - Packages: **All packages** or limit to org **loom-mvvm** / scope `@loom-mvvm`
+   - If your account uses 2FA for publishes, enable **bypass 2FA** on the token (or pass `NPM_OTP` when publishing)
+2. Set the token locally (never commit it):
 
 ```bash
-pnpm version-packages   # after changesets are merged or on a release branch
-npm login               # once per machine (or use NODE_AUTH_TOKEN in ~/.npmrc)
-pnpm release
+cp .env.example .env
+# edit .env → NODE_AUTH_TOKEN=npm_...
 ```
 
-`pnpm release` runs `pnpm check`, then `pnpm publish:packages` (`changeset publish`).
-
-If npm returns **E403** and mentions two-factor authentication, your account (or org) still requires an OTP or a granular token with bypass 2FA:
+Or one-shot:
 
 ```bash
-NPM_OTP=123456 pnpm publish:packages
+export NODE_AUTH_TOKEN=npm_...
 ```
 
-Packages are built during `pnpm check`; `prepack` only verifies `dist/` exists (it does not rebuild, so publish does not break on workspace-only types).
+3. Verify and publish:
+
+```bash
+node ./scripts/verify-npm-publish-access.mjs
+pnpm version-packages   # when versions are ready
+pnpm release            # or: pnpm publish:packages after pnpm check
+```
+
+Root `.npmrc` maps `//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}` so `changeset publish` authenticates correctly.
+
+If npm returns **E403** with 2FA wording: `NPM_OTP=123456 pnpm publish:packages`
+
+Packages are built during `pnpm check`; `prepack` only verifies `dist/` exists.
 
 Use `pnpm release:dry-run` to validate tarballs without publishing.
 
 ### First publication bootstrap
 
-1. **Own the `@loom` scope on npm** (org name `loom`):
-   - [Create an organization](https://www.npmjs.com/org/create) named `loom` if the name is free, **or**
-   - Accept an invite from whoever already owns the `@loom` org.
-   - Confirm: `npm org ls loom` should list your username.
-2. Run `node ./scripts/verify-npm-publish-access.mjs` — must pass before `pnpm publish:packages`.
-3. Add changesets and run `pnpm version-packages` before publishing.
-4. `npm login`, then `pnpm release` (or `pnpm publish:packages` after `pnpm check`).
-
-If `@loom` is not available to your account, use another scope and rename packages (see README **Renaming the project**). Your user scope `@sedoyjan` can publish without a separate org.
+1. npm org **loom-mvvm** with your user as owner (`npm org ls loom-mvvm`).
+2. `node ./scripts/verify-npm-publish-access.mjs` with `NODE_AUTH_TOKEN` set.
+3. `pnpm version-packages`, then `pnpm publish:packages`.
 
 ## Prereleases
 
@@ -52,7 +63,7 @@ If `@loom` is not available to your account, use another scope and rename packag
 pnpm changeset pre enter next
 pnpm changeset
 pnpm version-packages
-pnpm changeset publish
+NODE_AUTH_TOKEN=npm_... pnpm publish:packages
 pnpm changeset pre exit
 ```
 

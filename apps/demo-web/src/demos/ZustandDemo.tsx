@@ -1,5 +1,5 @@
-import { zustandSource } from "@loom/zustand";
-import { RuntimeProvider, useExternalSource } from "@loom/react";
+import { zustandSource } from "@loom-mvvm/zustand";
+import { RuntimeProvider, useExternalSource } from "@loom-mvvm/react";
 import { createStore } from "zustand/vanilla";
 import { useMemo } from "react";
 

@@ -1,6 +1,6 @@
 import { defineConfig } from "tsup";
 
-const external = ["@loom/core", "@tanstack/query-core"];
+const external = ["@loom-mvvm/core", "@tanstack/query-core"];
 
 export default defineConfig({
   entry: ["src/index.ts"],

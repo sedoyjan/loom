@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "turbo run dev --parallel",
-    "dev:demo": "pnpm build:packages && turbo run dev --parallel --filter=demo-web --filter='@loom/*'",
+    "dev:demo": "pnpm build:packages && turbo run dev --parallel --filter=demo-web --filter='@loom-mvvm/*'",
     "build": "turbo run build",
     "build:packages": "turbo run build --filter='./packages/*'",
     "build:demo": "pnpm --filter demo-web build",

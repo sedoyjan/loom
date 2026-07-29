@@ -1,6 +1,6 @@
-import { action, computed, defineViewModel, state } from "@loom/core";
-import type { ReadableSourceKeys } from "@loom/react";
-import { RuntimeProvider, useDecompose, view } from "@loom/react";
+import { action, computed, defineViewModel, state } from "@loom-mvvm/core";
+import type { ReadableSourceKeys } from "@loom-mvvm/react";
+import { RuntimeProvider, useDecompose, view } from "@loom-mvvm/react";
 import { createDemoApi } from "../api/createDemoApi.js";
 
 const api = createDemoApi({ latency: 400 });

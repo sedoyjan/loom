@@ -1,7 +1,7 @@
 "use client";
 
-import { action, defineViewModel, state } from "@loom/core";
-import { useExternalSource, view } from "@loom/react";
+import { action, defineViewModel, state } from "@loom-mvvm/core";
+import { useExternalSource, view } from "@loom-mvvm/react";
 
 const CounterViewModel = defineViewModel(() => {
   const count = state(0);

@@ -3,8 +3,8 @@
 ## Implemented
 
 - Monorepo scaffold (pnpm, Turborepo, tsup, Vitest, Changesets)
-- `@loom/core` primitives (`state`, `computed`, `batch`, `action`, `externalSource`, `defineViewModel`, `createRuntime`)
-- `@loom/react` (`useExternalSource`, `useViewModel`, `view`, `observe`, `RuntimeProvider`)
+- `@loom-mvvm/core` primitives (`state`, `computed`, `batch`, `action`, `externalSource`, `defineViewModel`, `createRuntime`)
+- `@loom-mvvm/react` (`useExternalSource`, `useViewModel`, `view`, `observe`, `RuntimeProvider`)
 - Adapter packages for TanStack Query, Zustand, Redux, RxJS
 - Demo web app and minimal Next.js / Expo examples
 

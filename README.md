@@ -23,25 +23,25 @@ UI frameworks excel at rendering, but application state and orchestration often 
 
 ## Packages
 
-| Package                | Purpose                                 | Status       |
-| ---------------------- | --------------------------------------- | ------------ |
-| `@loom/core`           | Reactive runtime & ViewModel primitives | experimental |
-| `@loom/react`          | React / React Native bindings           | experimental |
-| `@loom/tanstack-query` | TanStack Query adapter                  | prototype    |
-| `@loom/zustand`        | Zustand adapter                         | prototype    |
-| `@loom/redux`          | Redux adapter                           | prototype    |
-| `@loom/rxjs`           | RxJS adapter                            | prototype    |
+| Package                     | Purpose                                 | Status       |
+| --------------------------- | --------------------------------------- | ------------ |
+| `@loom-mvvm/core`           | Reactive runtime & ViewModel primitives | experimental |
+| `@loom-mvvm/react`          | React / React Native bindings           | experimental |
+| `@loom-mvvm/tanstack-query` | TanStack Query adapter                  | prototype    |
+| `@loom-mvvm/zustand`        | Zustand adapter                         | prototype    |
+| `@loom-mvvm/redux`          | Redux adapter                           | prototype    |
+| `@loom-mvvm/rxjs`           | RxJS adapter                            | prototype    |
 
 ## Install
 
 ```bash
-npm install @loom/core @loom/react
+npm install @loom-mvvm/core @loom-mvvm/react
 ```
 
 ## Quick start
 
 ```ts
-import { action, computed, defineViewModel, state } from "@loom/core";
+import { action, computed, defineViewModel, state } from "@loom-mvvm/core";
 
 export const CounterViewModel = defineViewModel(() => {
   const count = state(0);
@@ -60,7 +60,7 @@ export const CounterViewModel = defineViewModel(() => {
 ```
 
 ```tsx
-import { useExternalSource, view } from "@loom/react";
+import { useExternalSource, view } from "@loom-mvvm/react";
 import { CounterViewModel } from "./counter.vm";
 
 export const Counter = view(CounterViewModel, ({ vm }) => {

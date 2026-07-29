@@ -14,7 +14,7 @@ Updates use `Object.is` by default. Identical assignments do not notify subscrib
 
 ## React rendering
 
-`@loom/react` uses `useSyncExternalStore` with `getServerSnapshot` support. Granular per-property Proxy tracking is **not** implemented yet; subscribe per `ReadableSource`.
+`@loom-mvvm/react` uses `useSyncExternalStore` with `getServerSnapshot` support. Granular per-property Proxy tracking is **not** implemented yet; subscribe per `ReadableSource`.
 
 ## Roadmap
 

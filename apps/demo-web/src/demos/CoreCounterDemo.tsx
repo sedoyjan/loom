@@ -1,5 +1,5 @@
-import { action, batch, computed, defineViewModel, state } from "@loom/core";
-import { RuntimeProvider, useDecompose, view } from "@loom/react";
+import { action, batch, computed, defineViewModel, state } from "@loom-mvvm/core";
+import { RuntimeProvider, useDecompose, view } from "@loom-mvvm/react";
 import { useRenderCount } from "../useRenderCount.js";
 
 const counterFields = ["count", "doubled"] as const;

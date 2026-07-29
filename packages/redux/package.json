@@ -1,5 +1,5 @@
 {
-  "name": "@loom/redux",
+  "name": "@loom-mvvm/redux",
   "version": "0.1.0",
   "description": "Adapter for Redux-compatible stores as Loom reactive sources",
   "license": "MIT",
@@ -56,11 +56,11 @@
     "prepack": "node ../../scripts/prepack.mjs"
   },
   "peerDependencies": {
-    "@loom/core": "workspace:*",
+    "@loom-mvvm/core": "workspace:*",
     "redux": "^5.0.0"
   },
   "devDependencies": {
-    "@loom/core": "workspace:*",
+    "@loom-mvvm/core": "workspace:*",
     "redux": "5.0.1",
     "tsup": "8.4.0"
   }

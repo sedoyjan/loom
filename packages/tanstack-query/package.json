@@ -1,5 +1,5 @@
 {
-  "name": "@loom/tanstack-query",
+  "name": "@loom-mvvm/tanstack-query",
   "version": "0.1.0",
   "description": "Adapter between Loom and TanStack Query core",
   "license": "MIT",
@@ -56,11 +56,11 @@
     "prepack": "node ../../scripts/prepack.mjs"
   },
   "peerDependencies": {
-    "@loom/core": "workspace:*",
+    "@loom-mvvm/core": "workspace:*",
     "@tanstack/query-core": "^5.0.0"
   },
   "devDependencies": {
-    "@loom/core": "workspace:*",
+    "@loom-mvvm/core": "workspace:*",
     "@tanstack/query-core": "5.74.4",
     "tsup": "8.4.0"
   }

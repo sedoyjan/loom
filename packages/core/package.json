@@ -1,5 +1,5 @@
 {
-  "name": "@loom/core",
+  "name": "@loom-mvvm/core",
   "version": "0.1.0",
   "description": "Framework-independent reactive and ViewModel runtime for Loom",
   "license": "MIT",

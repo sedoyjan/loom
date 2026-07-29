@@ -1,61 +1,57 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
-import { createInterface } from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process";
+import { loadPublishEnv, resolveNpmAuthToken } from "./npm-auth-env.mjs";
 
-async function resolveOtp() {
-  const fromEnv = process.env.NPM_OTP ?? process.env.npm_config_otp;
-  if (fromEnv?.trim()) {
-    return fromEnv.trim();
-  }
-  if (!input.isTTY) {
-    return "";
-  }
-  const rl = createInterface({ input, output });
-  const answer = await rl.question(
-    "npm one-time password (2FA; leave empty if your token bypasses 2FA): ",
-  );
-  rl.close();
-  return answer.trim();
-}
+const root = process.cwd();
+loadPublishEnv(root);
 
-function printPublishHelp() {
-  process.stderr.write(`
-Publish failed. See the output above.
+const token = resolveNpmAuthToken();
+if (!token) {
+  console.error(`
+publish: missing npm token.
 
-  npm E404 on @loom/*
-    Your account does not have publish rights on the @loom scope. Run:
-      node ./scripts/verify-npm-publish-access.mjs
-    Create the "loom" npm org (or join it), or rename packages to a scope you own.
+Create a granular access token at https://www.npmjs.com/settings/~tokens
+(Publish packages, scope: @loom-mvvm / org loom-mvvm), then either:
 
-  npm E403 (2FA)
-    NPM_OTP=123456 pnpm publish:packages
+  export NODE_AUTH_TOKEN=npm_...
+  pnpm publish:packages
 
-See docs/releases.md
+Or put NODE_AUTH_TOKEN in a local .env file (see .env.example). Never commit tokens.
 `);
+  process.exit(1);
 }
 
-const otp = await resolveOtp();
-const env = { ...process.env };
+const env = {
+  ...process.env,
+  NODE_AUTH_TOKEN: token,
+  NPM_TOKEN: token,
+};
+
+const otp = (process.env.NPM_OTP ?? process.env.npm_config_otp ?? "").trim();
 if (otp) {
   env.npm_config_otp = otp;
 }
 
 const access = spawnSync("node", ["./scripts/verify-npm-publish-access.mjs"], {
   stdio: "inherit",
-  cwd: process.cwd(),
+  cwd: root,
+  env,
 });
 if (access.status !== 0) {
   process.exit(access.status ?? 1);
 }
 
+console.log("publish: using NODE_AUTH_TOKEN for registry.npmjs.org");
+
 const result = spawnSync("pnpm", ["exec", "changeset", "publish"], {
   stdio: "inherit",
   env,
-  cwd: process.cwd(),
+  cwd: root,
 });
 
 if (result.status !== 0) {
-  printPublishHelp();
+  process.stderr.write(`
+Publish failed. See docs/releases.md (token permissions, @loom-mvvm org, NPM_OTP if 2FA).
+`);
   process.exit(result.status ?? 1);
 }

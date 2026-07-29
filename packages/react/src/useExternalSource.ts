@@ -1,5 +1,5 @@
 import { useCallback, useSyncExternalStore } from "react";
-import type { ReadableSource } from "@loom/core";
+import type { ReadableSource } from "@loom-mvvm/core";
 
 export function useExternalSource<T>(
   source: ReadableSource<T>,

@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, type ReactNode } from "react";
-import { createRuntime, type LoomRuntime } from "@loom/core";
+import { createRuntime, type LoomRuntime } from "@loom-mvvm/core";
 
 const RuntimeContext = createContext<LoomRuntime | null>(null);
 

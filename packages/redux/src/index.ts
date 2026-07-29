@@ -1,6 +1,6 @@
 import type { Store } from "redux";
-import { externalSource, type ReadableSource } from "@loom/core";
-import type { Disposable } from "@loom/core";
+import { externalSource, type ReadableSource } from "@loom-mvvm/core";
+import type { Disposable } from "@loom-mvvm/core";
 
 export function reduxSource<TState, TSelected>(
   store: Store<TState>,

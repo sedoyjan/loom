@@ -1,5 +1,5 @@
 # Disabled — publish manually with `pnpm release` after `npm login` (see docs/releases.md).
-# Re-enable push + changesets/action when @loom npm scope and Trusted Publishing are ready.
+# Re-enable push + changesets/action when @loom-mvvm npm scope and Trusted Publishing are ready.
 
 name: Release
 

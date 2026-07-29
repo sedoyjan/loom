@@ -1,4 +1,4 @@
-# @loom/zustand
+# @loom-mvvm/zustand
 
 Exposes Zustand vanilla stores as Loom `ReadableSource` values.
 

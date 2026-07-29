@@ -44,7 +44,14 @@ jobs:
         run: pnpm build:demo
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
+      - name: Check Pages status
+        run: |
+          curl -sfL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pages" \
+            || echo "Pages site not found (configure-pages will enable if allowed)"
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/demo-web/dist

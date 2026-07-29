@@ -1,17 +1,17 @@
-# @loom/core
+# @loom-mvvm/core
 
 Framework-independent reactive and ViewModel runtime for [Loom](https://github.com/sedoyjan/loom).
 
 ## Install
 
 ```bash
-npm install @loom/core
+npm install @loom-mvvm/core
 ```
 
 ## Usage
 
 ```ts
-import { action, computed, defineViewModel, state } from "@loom/core";
+import { action, computed, defineViewModel, state } from "@loom-mvvm/core";
 
 export const CounterViewModel = defineViewModel(() => {
   const count = state(0);

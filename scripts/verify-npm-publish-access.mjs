@@ -2,16 +2,25 @@
 import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { loadPublishEnv, resolveNpmAuthToken } from "./npm-auth-env.mjs";
 
 const root = process.cwd();
-const scopeOrg = "loom";
+loadPublishEnv(root);
+
+const scopeOrg = "loom-mvvm";
 const probePackageDir = join(root, "packages", "core");
+
+const token = resolveNpmAuthToken();
+const npmEnv = token
+  ? { ...process.env, NODE_AUTH_TOKEN: token, NPM_TOKEN: token }
+  : { ...process.env };
 
 function run(cmd, options = {}) {
   return execSync(cmd, {
     encoding: "utf8",
     cwd: root,
     stdio: ["ignore", "pipe", "pipe"],
+    env: npmEnv,
     ...options,
   });
 }
@@ -33,7 +42,9 @@ let whoami = "";
 try {
   whoami = run("npm whoami").trim();
 } catch {
-  console.error("verify-npm-publish-access: not logged in. Run `npm login` first.");
+  console.error(
+    "verify-npm-publish-access: npm auth failed. Set NODE_AUTH_TOKEN (granular publish token).",
+  );
   process.exit(1);
 }
 
@@ -42,7 +53,9 @@ const packageName = pkg.name;
 const scope = packageName.split("/")[0] ?? "";
 
 if (scope !== `@${scopeOrg}`) {
-  console.log(`verify-npm-publish-access: skip (probe package ${packageName} is not @${scopeOrg})`);
+  console.log(
+    `verify-npm-publish-access: skip (probe package ${packageName} is not @${scopeOrg})`,
+  );
   process.exit(0);
 }
 
@@ -59,7 +72,10 @@ if (org.ok) {
 const inLoomOrg = Object.prototype.hasOwnProperty.call(orgMembers, whoami);
 
 if (inLoomOrg) {
-  console.log(`verify-npm-publish-access: ok (${whoami} is in npm org "${scopeOrg}")`);
+  const via = token ? "NODE_AUTH_TOKEN" : "npm auth";
+  console.log(
+    `verify-npm-publish-access: ok (${whoami}, ${via}, npm org "${scopeOrg}")`,
+  );
   process.exit(0);
 }
 
@@ -73,15 +89,6 @@ npm org "${scopeOrg}" members (npm org ls ${scopeOrg}):
       : Object.keys(orgMembers).join(", ")
   }
 
-Logged-in publish to @${scopeOrg}/* needs membership in the npm org "${scopeOrg}".
-A failed publish often shows E404 even when the real issue is scope access.
-
-Fix:
-  1. Create the org: https://www.npmjs.com/org/create  (name: ${scopeOrg})
-     — if the name is taken, you need an invite from the owner or pick another scope.
-  2. After you are added: npm org ls ${scopeOrg}  must list "${whoami}".
-  3. Retry: pnpm publish:packages
-
-Alternative: rename packages to @${whoami}/… (see README → Renaming the project).
+Fix: join npm org "${scopeOrg}" or use a token tied to an account that is an org member.
 `);
 process.exit(1);

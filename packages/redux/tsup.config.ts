@@ -6,7 +6,7 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: !process.argv.includes("--watch"),
-  external: ["@loom/core", "redux"],
+  external: ["@loom-mvvm/core", "redux"],
   treeshake: true,
   outExtension({ format }) {
     return { js: format === "cjs" ? ".cjs" : ".js" };

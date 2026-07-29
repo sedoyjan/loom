@@ -11,8 +11,8 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@loom/core": "workspace:*",
-    "@loom/react": "workspace:*",
+    "@loom-mvvm/core": "workspace:*",
+    "@loom-mvvm/react": "workspace:*",
     "next": "15.3.1",
     "react": "19.1.0",
     "react-dom": "19.1.0"

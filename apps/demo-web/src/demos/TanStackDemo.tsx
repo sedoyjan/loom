@@ -1,6 +1,6 @@
 import { QueryClient } from "@tanstack/query-core";
-import { tanstackQuerySource } from "@loom/tanstack-query";
-import { RuntimeProvider, useExternalSource } from "@loom/react";
+import { tanstackQuerySource } from "@loom-mvvm/tanstack-query";
+import { RuntimeProvider, useExternalSource } from "@loom-mvvm/react";
 import { useMemo } from "react";
 import { createDemoApi } from "../api/createDemoApi.js";
 

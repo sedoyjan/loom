@@ -1,6 +1,6 @@
 import { type BehaviorSubject, type Observable } from "rxjs";
-import { externalSource, type ReadableSource } from "@loom/core";
-import type { Disposable } from "@loom/core";
+import { externalSource, type ReadableSource } from "@loom-mvvm/core";
+import type { Disposable } from "@loom-mvvm/core";
 
 export type RxjsSourceOptions<T> = {
   initialValue: T;

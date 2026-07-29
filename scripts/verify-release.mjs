@@ -31,7 +31,7 @@ try {
     if (!statSync(pkgPath).isDirectory()) continue;
     const pkgJson = JSON.parse(readFileSync(join(pkgPath, "package.json"), "utf8"));
     if (pkgJson.private) continue;
-    if (privateNames.has(pkgJson.name?.replace("@loom/", ""))) continue;
+    if (privateNames.has(pkgJson.name?.replace("@loom-mvvm/", ""))) continue;
 
     console.log(`\nverify-release: packing ${pkgJson.name}...`);
     const packOutput = execSync(`pnpm pack --pack-destination "${packDir}"`, {

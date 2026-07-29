@@ -1,5 +1,5 @@
-import { state } from "@loom/core";
-import { RuntimeProvider, useExternalSource } from "@loom/react";
+import { state } from "@loom-mvvm/core";
+import { RuntimeProvider, useExternalSource } from "@loom-mvvm/react";
 import { useMemo } from "react";
 import { useRenderCount } from "../useRenderCount.js";
 

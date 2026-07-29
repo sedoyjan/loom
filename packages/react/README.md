@@ -1,16 +1,16 @@
-# @loom/react
+# @loom-mvvm/react
 
-React and React Native bindings for `@loom/core`.
+React and React Native bindings for `@loom-mvvm/core`.
 
 ## Peer dependencies
 
 - `react`
-- `@loom/core`
+- `@loom-mvvm/core`
 
 ## Usage
 
 ```tsx
-import { useExternalSource, view } from "@loom/react";
+import { useExternalSource, view } from "@loom-mvvm/react";
 import { CounterViewModel } from "./counter.vm";
 
 export const Counter = view(CounterViewModel, ({ vm }) => {
@@ -19,7 +19,7 @@ export const Counter = view(CounterViewModel, ({ vm }) => {
 });
 ```
 
-`@loom/react` does not import `react-dom` and is intended for React DOM and React Native.
+`@loom-mvvm/react` does not import `react-dom` and is intended for React DOM and React Native.
 
 ## Status
 
